@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in']!=1)
+if(!isset($_SESSION['logged_in']) && $_SESSION['logged_in']!=1)
 {
 	header("location:login.php?i=0");
 }
@@ -146,12 +146,12 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in']!=1)
 
 	</div>
 
-	<hr>
+	<!-- <hr>
 	<div id="rslt">
 		<input type=button  name="button2" onclick="displayResult();"  value="Display result"/>
 		<div id="result">
 		</div>
-	</div>
+	</div> -->
 
 
 <br>

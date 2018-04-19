@@ -3,7 +3,7 @@ session_start();
 $_SESSION['logged_in']=0;
 include 'connection.php';
 
-$err = array("Please login to access this area!","Invalid Username or Password","You have been logout. Please log-in again");
+$err = array("Please login to access this area!","Invalid Username or Password","You have been logout. Please log-in again","Not authorized user!");
 
 if(isset($_POST['username']))
 {
@@ -27,8 +27,12 @@ if(isset($_POST['username']))
       $_SESSION['username']=$username;
       $_SESSION['voted']=$row['voted'];
       $_SESSION['section']=$row['section'];
+      $_SESSION['role']=$row['role'];
 
-      header("location:index.php");
+      if($_SESSION['role']=='user')
+        header("location:index.php");
+      else
+        header("location:admin_add.php");
 
     }
     else {

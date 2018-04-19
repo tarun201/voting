@@ -12,7 +12,14 @@ if($_SESSION['voted']==0){
 	for($i=1;$i<=$n;$i++)
 	{
 		$res = mysqli_fetch_array($result);
-		echo "<input type=radio id='option1' name='rad' value=".$res['name'].">".$res['name']."</input><br />";
+		echo "<input type=radio id='option1' name='rad' value=".$res['name'].">".$res['name']."</input>";
+		if($res['manifesto']==NULL){
+			echo " <a href='#'>No manisfesto added</a><br />";
+		}
+		else {
+			echo " <a href='".$res['manifesto']."'download>See manisfesto</a><br />";
+		}
+
 	}
 	echo "</form>";
 
